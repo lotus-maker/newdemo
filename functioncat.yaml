@@ -1,0 +1,20 @@
+system: 1.0.0
+info:
+  name: vitesse-app
+envs:
+  dev:
+    branch: main
+apps:
+  web:
+    type: web_frontend
+    envs:
+      dev:
+        build:
+          root_path: .
+          script: pnpm install && pnpm build
+        provision:
+          root_path: dist
+          type: static
+routes:
+  main_env: dev
+  main_app: web
